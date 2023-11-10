@@ -1,0 +1,47 @@
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+
+class Fruit {
+    String name;
+    double price;
+    int quantity;
+
+    public Fruit(String name, double price, int quantity) {
+        this.name = name;
+        this.price = price;
+        this.quantity = quantity;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+}
+
+public class FruitSorter {
+    public static void main(String[] args) {
+        ArrayList<Fruit> fruits = new ArrayList<>();
+
+        // Storing 20 fruits' information in the ArrayList
+        for (int i = 0; i < 20; i++) {
+            fruits.add(new Fruit("Fruit" + i, (10.0 + i), (i + 1) * 5));
+        }
+
+        // Using Comparator to sort the fruits based on price
+        Comparator<Fruit> priceComparator = Comparator.comparing(Fruit::getPrice);
+        fruits.sort(priceComparator);
+
+        // Displaying sorted fruits
+        for (Fruit fruit : fruits) {
+            System.out.println("Fruit: " + fruit.getName() + ", Price: $" + fruit.getPrice() + ", Quantity: " + fruit.getQuantity());
+        }
+    }
+}
