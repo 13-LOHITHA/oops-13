@@ -1,0 +1,33 @@
+import java.util.Arrays;
+
+public class StringOperations {
+    public static void main(String[] args) {
+        String[] stringArray = {"Apple", "Banana", "Art", "Cat", "Dog", "Lead"};
+
+        // Function to search a string in the list
+        search("Cat", stringArray);
+
+        // Function to display strings that begin and end with specified letters
+        displayFilteredStrings('A', 't', stringArray);
+    }
+
+    // Function to search a string in the list
+    public static void search(String searchString, String[] stringArray) {
+        if (Arrays.asList(stringArray).contains(searchString)) {
+            System.out.println(searchString + " found in the list.");
+        } else {
+            System.out.println(searchString + " not found in the list.");
+        }
+    }
+
+    // Function to display strings that begin and end with specified letters
+    public static void displayFilteredStrings(char startsWith, char endsWith, String[] stringArray) {
+        System.out.println("Strings that begin with '" + startsWith + "' and end with '" + endsWith + "':");
+
+        for (String str : stringArray) {
+            if (str.charAt(0) == startsWith && str.charAt(str.length() - 1) == endsWith) {
+                System.out.println(str);
+            }
+        }
+    }
+}
